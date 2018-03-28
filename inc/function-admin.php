@@ -40,19 +40,18 @@ function sunset_custom_settings() {
 	add_settings_field( 'sidebar-gplus', 'Google+ handler', 'sunset_sidebar_gplus', 'alecaddd_sunset', 'sunset-sidebar-options');
 
 	//Theme Support Options
-	register_setting( 'sunset-theme-support', 'post_formats', 'sunset_post_formats_callback');
+	register_setting( 'sunset-theme-support', 'post_formats');
+	register_setting( 'sunset-theme-support', 'custom_header');
+	register_setting( 'sunset-theme-support', 'custom_background');
 	
 	add_settings_section( 'sunset-theme-options', 'Theme Options', 'sunset_theme_options', 'alecaddd_sunset_theme');
 
 	add_settings_field( 'post-formats', 'Post Formats', 'sunset_post_formats', 'alecaddd_sunset_theme', 'sunset-theme-options');
-
+	add_settings_field( 'custom-header', 'Custom Header', 'sunset_custom_header', 'alecaddd_sunset_theme', 'sunset-theme-options');
+	add_settings_field( 'custom-background', 'Custom Background', 'sunset_custom_background', 'alecaddd_sunset_theme', 'sunset-theme-options');
 
 }
-//Post Formats callback function
-function sunset_post_formats_callback($input) {
-	//var_dump($input);
-	return $input;
-}
+
 function sunset_theme_options(){
 	echo "Activate and Deactivate Specific Theme Support Options";
 }
@@ -66,11 +65,28 @@ function sunset_post_formats() {
 	}
 	echo $output;
 }
+function sunset_custom_header() {
+	$options = get_option( 'custom_header' );
+	$output = '';
+	$checked = (@$options == 1 ? 'checked' : '');
+	echo '<label><input type="checkbox" id="custom_header" name="custom_header" value="1" '.$checked.'>Activate the Custom Header</label>';
+}
+function sunset_custom_background() {
+	$options = get_option( 'custom_background' );
+	$output = '';
+	$checked = (@$options == 1 ? 'checked' : '');
+	echo '<label><input type="checkbox" id="custom_background" name="custom_background" value="1" '.$checked.'>Activate the Custom Background</label>';
+}
 
 //Sidebar Options Functions
 function sunset_sidebar_profile() {
 	$picture = esc_attr(get_option('profile_picture'));
-	echo '<input type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button"/> <input type="hidden" name="profile_picture" id="profile-picture" value="'.$picture.'" />';
+	if(empty($picture)) {
+		echo '<input type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button"/> <input type="hidden" name="profile_picture" id="profile-picture" value="" />';
+	}else {
+		echo '<input type="button" class="button button-secondary" value="Replace Profile Picture" id="upload-button"/> <input type="hidden" name="profile_picture" id="profile-picture" value="'.$picture.'" /><input type="button" class="button button-secondary" value="Remove" id="remove-picture">';
+	}
+	
 } 
 function sunset_sidebar_name() {
 	$firstName = esc_attr(get_option('first_name'));
