@@ -8,21 +8,24 @@
 */
 
 function sunset_add_admin_page() {
-	//Generate Sunset Admin
+	
+	/******************Generate Sunset Admin********************/
 	add_menu_page('Sunset Theme Options', 'Sunset', 'manage_options', 'alecaddd_sunset', 'sunset_theme_create_page', get_template_directory_uri() . '/img/sunset-icon.png'/*'dashicons-admin-customizer'*/, 110);
-	//Generate Sunset Admin Sub Pages
+	
+	/******************Generate Sunset Admin Sub Pages********************/
 	add_submenu_page( 'alecaddd_sunset', 'Sunset Sidebar Options', 'Sidebar', 'manage_options', 'alecaddd_sunset','sunset_theme_create_page');
 	add_submenu_page( 'alecaddd_sunset', 'Sunset Theme Options', 'Theme Options', 'manage_options', 'alecaddd_sunset_theme','sunset_theme_support_page');
 	add_submenu_page( 'alecaddd_sunset', 'Sunset Contact Form', 'Contact Form', 'manage_options', 'alecaddd_sunset_theme_contact','sunset_contact_form_page');
 	add_submenu_page( 'alecaddd_sunset', 'Sunset CSS Options', 'Custom CSS', 'manage_options', 'alecaddd_sunset_css','sunset_theme_settings_page');
 	
-	//Activate Custom Settings
+	/******************Activate Custom Settings********************/
 	add_action('admin_init', 'sunset_custom_settings');
 }
 add_action('admin_menu', 'sunset_add_admin_page');
 
 function sunset_custom_settings() {
-	//Sidebar Options
+
+	/******************Sidebar Options********************/
 	register_setting( 'sunset-settings-group', 'profile_picture' );
 	register_setting( 'sunset-settings-group', 'first_name' );
 	register_setting( 'sunset-settings-group', 'last_name' );
@@ -37,10 +40,11 @@ function sunset_custom_settings() {
 	add_settings_field( 'sidebar-name', 'Full Name', 'sunset_sidebar_name', 'alecaddd_sunset', 'sunset-sidebar-options');
 	add_settings_field( 'sidebar-description', 'Description', 'sunset_sidebar_description', 'alecaddd_sunset', 'sunset-sidebar-options');
 	add_settings_field( 'sidebar-twitter', 'Twitter handler', 'sunset_sidebar_twitter', 'alecaddd_sunset', 'sunset-sidebar-options');
-	add_settings_field( 'sidebar-facebook', 'Facebook handler', 'sunset_sidebar_facebook', 'alecaddd_sunset', 'sunset-sidebar-options');
 	add_settings_field( 'sidebar-gplus', 'Google+ handler', 'sunset_sidebar_gplus', 'alecaddd_sunset', 'sunset-sidebar-options');
+	add_settings_field( 'sidebar-facebook', 'Facebook handler', 'sunset_sidebar_facebook', 'alecaddd_sunset', 'sunset-sidebar-options');
+	
 
-	//Theme Support Options
+	/******************Theme Support Options********************/
 	register_setting( 'sunset-theme-support', 'post_formats');
 	register_setting( 'sunset-theme-support', 'custom_header');
 	register_setting( 'sunset-theme-support', 'custom_background');
@@ -51,13 +55,15 @@ function sunset_custom_settings() {
 	add_settings_field( 'custom-header', 'Custom Header', 'sunset_custom_header', 'alecaddd_sunset_theme', 'sunset-theme-options');
 	add_settings_field( 'custom-background', 'Custom Background', 'sunset_custom_background', 'alecaddd_sunset_theme', 'sunset-theme-options');
 
-	//Contact Form Options
+
+	/******************Contact Form Options*******************/
 	register_setting('sunset-contact-options', 'activate_contact');
 
 	add_settings_section('sunset-contact-section', 'Contact Form', 'sunset_contact_section', 'alecaddd_sunset_theme_contact' );
 	add_settings_field('activate-form', 'Activate Contact Form', 'sunset_activate_contact', 'alecaddd_sunset_theme_contact', 'sunset-contact-section');
 
-	//Custom CSS Options
+
+	/******************Custom CSS Options*******************/
 	register_setting('sunset-custom-css-options', 'sunset_css', 'sunset_sanitize_custom_css');
 
 	add_settings_section('sunset-custom-css-section', 'Custom CSS', 'sunset_custom_css_section_callback', 'alecaddd_sunset_css' );
@@ -108,15 +114,15 @@ function sunset_custom_background() {
 	echo '<label><input type="checkbox" id="custom_background" name="custom_background" value="1" '.$checked.'>Activate the Custom Background</label>';
 }
 
-//Sidebar Options Functions
+
+/*****************Sidebar Options Functions*********************/
 function sunset_sidebar_profile() {
 	$picture = esc_attr(get_option('profile_picture'));
 	if(empty($picture)) {
-		echo '<input type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button"/> <input type="hidden" name="profile_picture" id="profile-picture" value="" />';
+		echo '<button type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button><input type="hidden" name="profile_picture" id="profile-picture" value="" />';
 	}else {
-		echo '<input type="button" class="button button-secondary" value="Replace Profile Picture" id="upload-button"/> <input type="hidden" name="profile_picture" id="profile-picture" value="'.$picture.'" /><input type="button" class="button button-secondary" value="Remove" id="remove-picture">';
+		echo '<button type="button" class="button button-secondary" value="Replace Profile Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Profile Picture</button><input type="hidden" name="profile_picture" id="profile-picture" value="'.$picture.'" /><button type="button" class="button button-secondary" value="Remove" id="remove-picture"><span class="sunset-icon-button dashicons-before dashicons-no"></span>Remove</button>';
 	}
-	
 } 
 function sunset_sidebar_name() {
 	$firstName = esc_attr(get_option('first_name'));
@@ -131,19 +137,20 @@ function sunset_sidebar_twitter() {
 	$twitter = esc_attr( get_option( 'twitter_handler' ) );
 	echo '<input type="text" name="twitter_handler" value="'.$twitter.'" placeholder="Twitter handler" /><p class="description">Input your Twitter username without the @ character.</p>';
 }
-function sunset_sidebar_facebook() {
-	$facebook = esc_attr( get_option( 'facebook_handler' ) );
-	echo '<input type="text" name="facebook_handler" value="'.$facebook.'" placeholder="Facebook handler" />';
-}
 function sunset_sidebar_gplus() {
 	$gplus = esc_attr( get_option( 'gplus_handler' ) );
 	echo '<input type="text" name="gplus_handler" value="'.$gplus.'" placeholder="Google+ handler" />';
 }
-
+function sunset_sidebar_facebook() {
+	$facebook = esc_attr( get_option( 'facebook_handler' ) );
+	echo '<input type="text" name="facebook_handler" value="'.$facebook.'" placeholder="Facebook handler" />';
+}
 function sunset_sidebar_options() {
 	echo 'Customize your Sidebar Information';
 } 
-//Sanitization settings
+
+
+/******************Sanitization settings********************/
 function sunset_sanitize_twitter_handler( $input ){
 	$output = sanitize_text_field( $input );
 	$output = str_replace('@', '', $output);
@@ -153,7 +160,8 @@ function sunset_sanitize_custom_css( $input ){
 	$output = esc_textarea( $input );
 	return $output;
 }
-//Template submenu functions
+
+/*****************Template submenu functions*********************/
 function sunset_theme_create_page() {
 	//generation of our admin page
 	require_once(get_template_directory() . '/inc/templates/sunset-admin.php');
