@@ -1,17 +1,18 @@
 /*
-	@package sunsettheme
+    @package sunsettheme
 */
 /* 
-	Font Icon 
-	------------------------------------------------
+    Font Icon 
+    ------------------------------------------------
 */
 @font-face {
   font-family: 'sunset-icon';
-  src: url("../fonts/sunset-icon.eot?dxcjr7");
-  src: url("../fonts/sunset-icon.eot?dxcjr7#iefix") format("embedded-opentype"), url("../fonts/sunset-icon.ttf?dxcjr7") format("truetype"), url("../fonts/sunset-icon.woff?dxcjr7") format("woff"), url("../fonts/sunset-icon.svg?dxcjr7#sunset-icon") format("svg");
+  src: url("../fonts/sunset-icon.eot?bpwtle");
+  src: url("../fonts/sunset-icon.eot?bpwtle#iefix") format("embedded-opentype"), url("../fonts/sunset-icon.ttf?bpwtle") format("truetype"), url("../fonts/sunset-icon.woff?bpwtle") format("woff"), url("../fonts/sunset-icon.svg?bpwtle#sunset-icon") format("svg");
   font-weight: normal;
   font-style: normal; }
 .sunset-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'sunset-icon' !important;
   speak: none;
   font-style: normal;
@@ -19,57 +20,66 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
 .sunset-audio:before {
-  content: "\e800"; }
+  content: "\e900"; }
 
 .sunset-chevron-left:before {
-  content: "\e801"; }
+  content: "\e901"; }
 
 .sunset-chevron-right:before {
-  content: "\e802"; }
+  content: "\e902"; }
 
 .sunset-close:before {
-  content: "\e803"; }
+  content: "\e903"; }
 
 .sunset-comment:before {
-  content: "\e804"; }
+  content: "\e904";
+  color: #fff; }
 
 .sunset-link:before {
-  content: "\e805"; }
+  content: "\e905";
+  color: #fff; }
 
 .sunset-loading:before {
-  content: "\e806"; }
+  content: "\e906";
+  color: #ccc; }
 
 .sunset-logo:before {
-  content: "\e807"; }
+  content: "\e907"; }
 
 .sunset-menu:before {
-  content: "\e808"; }
+  content: "\e908"; }
 
 .sunset-pencil:before {
-  content: "\e809"; }
+  content: "\e909"; }
 
 .sunset-pics:before {
-  content: "\e80a"; }
+  content: "\e90a";
+  color: #fff; }
 
 .sunset-search:before {
-  content: "\e80b"; }
+  content: "\e90b";
+  color: #bcbcbc; }
 
 .sunset-share:before {
-  content: "\e80c"; }
+  content: "\e90c";
+  color: #fff; }
 
 .sunset-tag:before {
-  content: "\e80d"; }
+  content: "\e90d";
+  color: #929292; }
 
 .sunset-video:before {
-  content: "\e80e"; }
+  content: "\e90e";
+  color: #fff; }
 
 /* 
-	Generic 
-	------------------------------------------------
+    Generic 
+    ------------------------------------------------
 */
 body {
   font-family: 'Raleway', 'Helvetica Neue', 'Helvetica', Arial, Verdana, sans-serif; }
@@ -83,15 +93,16 @@ body {
   display: table;
   width: 100%;
   height: 100%; }
-  .table .table-cell {
-    display: table-cell;
-    width: 100%;
-    height: 100%;
-    vertical-align: middle; }
+
+.table .table-cell {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle; }
 
 /* 
-	Header 
-	------------------------------------------------
+    Header 
+    ------------------------------------------------
 */
 .header-container {
   position: relative;
@@ -108,5 +119,13 @@ body {
   font-size: 14px;
   color: #fff;
   margin-top: 1em; }
+
+.nav-container {
+  position: absolute;
+  bottom: 0; }
+
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent; }
 
 /*# sourceMappingURL=sunset.css.map */
