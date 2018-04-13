@@ -9,6 +9,7 @@
 	========================
 */
 
+// Note: walker nav class I'm using is limited only to the first submenu
 class Sunset_Walker_Nav_Primary extends Walker_Nav_menu {
 	
 	function start_lvl( &$output, $depth = 0, $args = array() ){ //ul
