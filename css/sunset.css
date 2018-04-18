@@ -418,4 +418,22 @@ h1 {
   .entry-excerpt.image-caption p {
     margin: 20px 0; }
 
+/* 
+    Audio Post Format
+    ------------------------------------------------
+*/
+.sunset-format-audio h1 {
+  font-size: 30px; }
+  .sunset-format-audio h1.entry-title {
+    display: inline-block;
+    margin-right: 20px; }
+    .sunset-format-audio h1.entry-title:before, .sunset-format-audio h1.entry-title:after {
+      display: none; }
+.sunset-format-audio .entry-meta {
+  display: inline-block;
+  margin-bottom: 0; }
+.sunset-format-audio .entry-content iframe {
+  width: 100%;
+  height: 166px; }
+
 /*# sourceMappingURL=sunset.css.map */
