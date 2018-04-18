@@ -104,10 +104,12 @@ body {
     Standard Post Format
     ------------------------------------------------
 */
-article { margin-bottom: 80px;}
+article { padding-top: 40px; padding-bottom: 40px;
+    &:first-child { padding-top: 80px;}
+}
 
 h1{ font-size: 48px; font-weight:200; 
-    &.entry-title{line-height: 1.5em; margin: 40px 0 0; padding: 0;
+    &.entry-title{line-height: 1.5em; margin: 0; padding: 0;
         &:before, &:after { content: '~'; display: inline-block; position:relative;}
         &:before{ margin-right:10px;}
         &:after { margin-left: 10px;}
@@ -159,7 +161,7 @@ h1{ font-size: 48px; font-weight:200;
     ------------------------------------------------
 */
 
-.sunset-format-image { margin-top: 50px; 
+.sunset-format-image { 
     .entry-header { height: 600px; @extend %text-shadow; position: relative; }
     h1,
     .entry-meta,
@@ -193,13 +195,26 @@ h1{ font-size: 48px; font-weight:200;
     ------------------------------------------------
 */
 .sunset-format-video {
-    header { margin-top: 40px;
+    header { 
         h1 {
             &.entry-title { margin-top: 20px; }
         }
     }
 }
-
+/* 
+   Gallery Post Format
+    ------------------------------------------------
+*/
+.sunset-format-gallery {
+    header { 
+        h1 {
+            &.entry-title { margin-top: 20px; }
+        }
+    }
+    .standard-featured { height: 500px;  
+        &:after { background-color: transparent; }
+    }
+}
 
 
 

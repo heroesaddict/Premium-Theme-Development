@@ -287,14 +287,17 @@ a {
     ------------------------------------------------
 */
 article {
-  margin-bottom: 80px; }
+  padding-top: 40px;
+  padding-bottom: 40px; }
+  article:first-child {
+    padding-top: 80px; }
 
 h1 {
   font-size: 48px;
   font-weight: 200; }
   h1.entry-title {
     line-height: 1.5em;
-    margin: 40px 0 0;
+    margin: 0;
     padding: 0; }
     h1.entry-title:before, h1.entry-title:after {
       content: '~';
@@ -393,21 +396,19 @@ h1 {
     Image Post Format
     ------------------------------------------------
 */
-.sunset-format-image {
-  margin-top: 50px; }
-  .sunset-format-image .entry-header {
-    height: 600px;
-    position: relative; }
-  .sunset-format-image h1,
-  .sunset-format-image .entry-meta,
-  .sunset-format-image .entry-header {
+.sunset-format-image .entry-header {
+  height: 600px;
+  position: relative; }
+.sunset-format-image h1,
+.sunset-format-image .entry-meta,
+.sunset-format-image .entry-header {
+  color: #ffffff; }
+  .sunset-format-image h1 a,
+  .sunset-format-image .entry-meta a,
+  .sunset-format-image .entry-header a {
     color: #ffffff; }
-    .sunset-format-image h1 a,
-    .sunset-format-image .entry-meta a,
-    .sunset-format-image .entry-header a {
-      color: #ffffff; }
-  .sunset-format-image h1 {
-    padding-top: 10px; }
+.sunset-format-image h1 {
+  padding-top: 10px; }
 
 .entry-excerpt.image-caption {
   position: absolute;
@@ -440,9 +441,18 @@ h1 {
     Video Post Format
     ------------------------------------------------
 */
-.sunset-format-video header {
-  margin-top: 40px; }
-  .sunset-format-video header h1.entry-title {
-    margin-top: 20px; }
+.sunset-format-video header h1.entry-title {
+  margin-top: 20px; }
+
+/* 
+   Gallery Post Format
+    ------------------------------------------------
+*/
+.sunset-format-gallery header h1.entry-title {
+  margin-top: 20px; }
+.sunset-format-gallery .standard-featured {
+  height: 500px; }
+  .sunset-format-gallery .standard-featured:after {
+    background-color: transparent; }
 
 /*# sourceMappingURL=sunset.css.map */
