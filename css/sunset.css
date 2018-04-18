@@ -436,4 +436,13 @@ h1 {
   width: 100%;
   height: 166px; }
 
+/* 
+    Video Post Format
+    ------------------------------------------------
+*/
+.sunset-format-video header {
+  margin-top: 40px; }
+  .sunset-format-video header h1.entry-title {
+    margin-top: 20px; }
+
 /*# sourceMappingURL=sunset.css.map */
