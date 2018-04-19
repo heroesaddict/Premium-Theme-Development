@@ -214,6 +214,26 @@ h1{ font-size: 48px; font-weight:200;
     .standard-featured { height: 500px;  
         &:after { background-color: transparent; }
     }
+    .carousel-control { background-color: none; background-image: none; opacity: 1; filter: alpha(opacity=100); font-size: 30px; @extend %text-shadow; width: auto; 
+        .preview-container { position: relative; display: block; padding: 20px; background-color: rgba(0,0,0,0); line-height: 0; @include animate( background-color, 320ms);
+            .thumbnail-container {position: absolute; display: block; height: 68px; width: 68px; border-radius: 50%; top: 1px; background-color: #9999; @include animate( transform, 320ms); @include transform(scale(0)); }
+        }
+        &.right {
+            .preview-container { padding-left: 80px; border-radius: 35.5px 0 0 35.5px;
+                .thumbnail-container{ left: 1px;}
+            }
+        }
+        &.left {
+            .preview-container { padding-right: 80px; border-radius: 0 35.5px 35.5px 0;
+                .thumbnail-container{ right: 1px;}
+            }
+        }
+        &:hover { 
+            .preview-container { background-color: rgba(0,0,0,0.8); 
+                .thumbnail-container { @include transform(scale(1));}
+            }
+        }
+    }
 }
 
 
