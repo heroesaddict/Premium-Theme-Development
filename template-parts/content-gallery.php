@@ -11,27 +11,21 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('sunset-format-gallery'); ?>>
 	<header class="entry-header text-center">	
-		<?php if( sunset_get_attachment() ): 
-			$attachments = sunset_get_attachment(7);
-			//var_dump($attachments);
-		?>
+		<?php if( sunset_get_attachment() ): ?>
 			<div id="post-gallery-<?php the_ID(); ?>" class="carousel slide sunset-carousel-thumb" data-ride="carousel">
 				<div class="carousel-inner" role="listbox">
 					<?php 
-					$count = count($attachments) - 1;
-					for($i = 0; $i <= $count; $i++): 
-						$active = ( $i == 0 ? ' active' : '');
-
-						$n = ($i == $count ? 0 : $i+1 );
-						$nextImg = wp_get_attachment_thumb_url( $attachments[$n]->ID ); 
-						$p = ( $i == 0 ? $count : $i-1 );
-						$prevImg = wp_get_attachment_thumb_url( $attachments[$p]->ID ); 
+						$attachments = sunset_get_bs_slides( sunset_get_attachment(7) );
+						foreach ($attachments as $attachment):
 					?>
-						<div class="item<?php echo $active; ?> background-image standard-featured" style="background-image: url(<?php echo wp_get_attachment_url( $attachments[$i]->ID ); ?> );">
-							<div class="hide next-image-preview" data-image="<?php echo $nextImg; ?>"></div>
-							<div class="hide previous-image-preview" data-image="<?php  echo $prevImg; ?>"></div>
+						<div class="item<?php echo  $attachment['class']; ?> background-image standard-featured" style="background-image: url(<?php echo $attachment['url']; ?> );">
+							<div class="hide next-image-preview" data-image="<?php echo $attachment['next_img']; ?>"></div>
+							<div class="hide previous-image-preview" data-image="<?php  echo$attachment['prev_img']; ?>"></div>
+							<div class="entry-excerpt image-caption">
+								<p><?php echo $attachment['caption']; ?></p> <!-- Title in image properties -->
+							</div>
 						</div>
-					<?php endfor; ?>
+					<?php endforeach; ?>
 				</div><!-- .carousel-inner -->
 				<a class="left carousel-control" href="#post-gallery-<?php the_ID(); ?>" role="button" data-slide="prev">
 					<div class="table">

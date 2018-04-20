@@ -172,7 +172,7 @@ h1{ font-size: 48px; font-weight:200;
 }
 .entry-excerpt {
     &.image-caption { @extend %background-gradient; position: absolute; left: 0; bottom: 0; right: 0; margin: 0;
-        p { margin: 20px 0;}
+        p { margin: 20px 0; font-size: 14px;}
     }
 }
 /* 
@@ -207,6 +207,7 @@ h1{ font-size: 48px; font-weight:200;
 */
 .sunset-format-gallery {
     header { 
+        .carousel { color: #ffffff ; }
         h1 {
             &.entry-title { margin-top: 20px; }
         }
@@ -232,6 +233,14 @@ h1{ font-size: 48px; font-weight:200;
             .preview-container { background-color: rgba(0,0,0,0.8); 
                 .thumbnail-container { @include transform(scale(1));}
             }
+        }
+    }
+    .entry-excerpt {
+        &.image-caption {  @include animate( transform, 320ms); @include transform(translateY(100%)); }
+    }
+    &:hover {
+        .entry-excerpt {
+            &.image-caption { @include transform(translateY(0)); }
         }
     }
 }
