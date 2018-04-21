@@ -591,4 +591,14 @@ h1 {
   background-color: rgba(0, 0, 0, 0.05);
   padding-right: 10px; }
 
+/* 
+   Footer Section
+    ------------------------------------------------
+*/
+.sunset-footer {
+  background-color: #333;
+  padding: 20px;
+  margin-top: 40px;
+  display: block; }
+
 /*# sourceMappingURL=sunset.css.map */

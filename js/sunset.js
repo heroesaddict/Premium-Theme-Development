@@ -17,5 +17,33 @@ jQuery(document).ready( function($){
 		 	$(this).find('.carousel-control.left').find('.thumbnail-container').css({ 'background-image' : 'url('+prevThumb+')'});
 		});
 	}
+
+	/* Ajax Functions */
+	$(document).on('click', '.sunset-load-more', function(){
+		//this refers to '.sunset-load-more' element
+		var that = $(this);
+		var page = $(that).data('page');
+		var newPage = page+1;
+		var ajaxurl = $(that).data('url');
+
+		$.ajax({
+			url : ajaxurl,
+			type: 'post',//like method ="post" in a form
+			data: {
+				page: page,
+				action: 'sunset_load_more'
+			},
+			error: function(response){
+				console.log(response);
+			},
+			success: function(response){
+				$(that).data('page', newPage);
+				$('.sunset-posts-container').append(response);
+			},
+		});
+
+	});
+
+
 });
 
