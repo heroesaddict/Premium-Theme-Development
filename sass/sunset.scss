@@ -325,8 +325,36 @@ h1{ font-size: 48px; font-weight:200;
     margin-top: 40px;
     display: block;
 }
+/* 
+   Ajax Loading
+    ------------------------------------------------
+*/
+.btn-sunset-load {
+    display: block;
+    width: 200px;
+    color: #222;
+    font-size: 30px;
+    margin: 0 auto;
+    cursor: pointer; //<a> tag has no href so use this...
+    opacity: 0.5;
+    @include animate( opacity, 320ms );
+    &:hover,
+    &:focus,
+    &.loading {
+        opacity: 1;
+    }
+    &.loading {
+        cursor: default;
+    }
+    span { display: block; }
+}
 
-
+.spin {
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
 
 
 

@@ -19,12 +19,15 @@ jQuery(document).ready( function($){
 	}
 
 	/* Ajax Functions */
-	$(document).on('click', '.sunset-load-more', function(){
+	$(document).on('click', '.sunset-load-more:not(.loading)', function(){//click event will only execute if no loading class
 		//this refers to '.sunset-load-more' element
 		var that = $(this);
 		var page = $(that).data('page');
 		var newPage = page+1;
 		var ajaxurl = $(that).data('url');
+
+		that.addClass('loading').find('.text').slideUp(320);
+		that.find('.sunset-icon').addClass('spin');
 
 		$.ajax({
 			url : ajaxurl,
@@ -39,7 +42,12 @@ jQuery(document).ready( function($){
 			success: function(response){
 				$(that).data('page', newPage);
 				$('.sunset-posts-container').append(response);
-			},
+
+				setTimeout(function(){
+					that.removeClass('loading').find('.text').slideDown(320);
+					that.find('.sunset-icon').removeClass('spin');
+				}, 2000 );
+			}
 		});
 
 	});

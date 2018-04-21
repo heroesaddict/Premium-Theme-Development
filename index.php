@@ -18,7 +18,10 @@
 			</div><!-- .container -->
 			<!-- more posts append here -->
 			<div class="container text-center">
-				<a class="btn btn-lg btn-default sunset-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>"><span class="sunset-icon sunset-loading"> Load More</span></a>
+				<a class="btn-sunset-load sunset-load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
+					<span class="sunset-icon sunset-loading"></span>
+					<span class="text"> Load More</span>
+				</a>
 			</div>
 		</main>
 	</div><!-- #primary -->
