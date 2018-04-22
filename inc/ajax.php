@@ -14,8 +14,9 @@ function sunset_load_more() {
 	$paged = $_POST["page"]+1;
 	//echo $paged;
 	$query = new WP_Query( array(
-		'post_type' => 'post',
-		'paged' => $paged
+		'post_type' 	=> 'post',
+		'post_status'	=> 'publish',
+		'paged' 		=> $paged
 	) );
 	
 	if( $query->have_posts() ):

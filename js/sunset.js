@@ -1,13 +1,16 @@
 jQuery(document).ready( function($){
 	// //custom sunset script
-	
+
+	revealPosts(); //show and animate first batch of posts
+
 	var carousel =  '.sunset-carousel-thumb';
 	//call slide the first time the page load
 	sunset_get_bs_thumbs(carousel);
 
-	$(carousel).on('slid.bs.carousel', function(){
-		sunset_get_bs_thumbs(carousel);
-	});
+	 slideEvent();
+	// $(carousel).on('slid.bs.carousel', function(){
+	// 	sunset_get_bs_thumbs(carousel);
+	// });
 	function sunset_get_bs_thumbs(carousel) {
 
 		$(carousel).each(function(){
@@ -19,10 +22,11 @@ jQuery(document).ready( function($){
 	}
 
 	/* Ajax Functions */
+	//Number of posts load depends on 'Blog pages show at most' Setting on Dashboard
 	$(document).on('click', '.sunset-load-more:not(.loading)', function(){//click event will only execute if no loading class
 		//this refers to '.sunset-load-more' element
 		var that = $(this);
-		var page = $(that).data('page');
+		var page = $(this).data('page');
 		var newPage = page+1;
 		var ajaxurl = $(that).data('url');
 
@@ -40,18 +44,57 @@ jQuery(document).ready( function($){
 				console.log(response);
 			},
 			success: function(response){
-				$(that).data('page', newPage);
-				$('.sunset-posts-container').append(response);
 
 				setTimeout(function(){
+					that.data('page', newPage);
+					$('.sunset-posts-container').append(response);
+				
 					that.removeClass('loading').find('.text').slideDown(320);
 					that.find('.sunset-icon').removeClass('spin');
-				}, 2000 );
+
+					revealPosts();
+
+				}, 1000 );
 			}
 		});
 
 	});
 
+	/* helper functions */
+	function revealPosts() {
+		var posts = $('article:not(.reveal)');
+		var i = 0;
+
+		setInterval( function(){
+			if( i>= posts.length) return false;
+
+			var el = posts[i];
+			$(el).addClass('reveal').find('.sunset-carousel-thumb').carousel();//call bootstrap carousel again.
+			slideEvent();
+			i++;
+		}, 200);
+	};
+	function slideEvent() {
+	    $(carousel).on('slid.bs.carousel', function(){
+	    sunset_get_bs_thumbs(carousel);
+	    });
+	}﻿
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

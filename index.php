@@ -11,6 +11,9 @@
 				<?php 
 					if( have_posts() ):
 						while( have_posts() ): the_post();
+
+							//$class = 'reveal';
+							//set_query_var( 'post-class', $class );//set post-class as global variable-> can be retrieve by get_query_var()
 							get_template_part( 'template-parts/content', get_post_format() );
 						endwhile;
 					endif;
