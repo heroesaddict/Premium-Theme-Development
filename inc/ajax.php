@@ -13,6 +13,13 @@ function sunset_load_more() {
 	
 	$paged = $_POST["page"]+1;
 	//echo $paged;
+	$prev = $_POST["prev"];
+	//echo $prev;
+
+	if( $prev == 1 && $_POST["page"] != 1) {
+		$paged = $_POST["page"]-1;
+	}
+
 	$query = new WP_Query( array(
 		'post_type' 	=> 'post',
 		'post_status'	=> 'publish',
@@ -28,7 +35,8 @@ function sunset_load_more() {
 		
 		endwhile;
 		echo '</div>';
-		
+	else:
+		echo 0;
 	endif;
 	
 	wp_reset_postdata();

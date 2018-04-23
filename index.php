@@ -7,6 +7,14 @@
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+			<?php if( is_paged() ): ?><!--  check if page is in pagination->meaning not in page 1 -->
+				<div class="container text-center container-load-previous">
+					<a class="btn-sunset-load sunset-load-more" data-prev="1" data-page="<?php echo sunset_check_paged(1);  ?>" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
+						<span class="sunset-icon sunset-loading"></span>
+						<span class="text"> Load Previous</span>
+					</a>
+				</div><!-- container -->
+			<?php endif; ?>
 			<div class="container sunset-posts-container">
 				<?php 
 					if( have_posts() ):

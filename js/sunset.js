@@ -34,6 +34,11 @@ jQuery(document).ready( function($){
 		var page = $(this).data('page');
 		var newPage = page+1;
 		var ajaxurl = $(that).data('url');
+		var prev = that.data('prev');
+
+		if( typeof prev === 'undefined' ) {
+			prev = 0;
+		}
 
 		that.addClass('loading').find('.text').slideUp(320);
 		that.find('.sunset-icon').addClass('spin');
@@ -43,23 +48,39 @@ jQuery(document).ready( function($){
 			type: 'post',//like method ="post" in a form
 			data: {
 				page: page,
+				prev: prev,
 				action: 'sunset_load_more'
 			},
 			error: function(response){
 				console.log(response);
 			},
 			success: function(response){
+				if (response == 0) {
+					$('.sunset-posts-container').append('<div class="text-center"><h3>You reach the end of the line!</h3><p>No more post to load.</p></div>');
+					that.slideUp(320);
+				} else {
 
-				setTimeout(function(){
-					that.data('page', newPage);
-					$('.sunset-posts-container').append(response);
-				
-					that.removeClass('loading').find('.text').slideDown(320);
-					that.find('.sunset-icon').removeClass('spin');
-
-					revealPosts();
-
-				}, 1000 );
+					setTimeout(function(){
+						
+						if( prev == 1) {
+							$('.sunset-posts-container').prepend(response);
+							newPage = page-1;
+						} else {
+							$('.sunset-posts-container').append(response);
+						}
+						if( newPage == 1){
+							that.slideUp(320);
+						} else {
+							that.data('page', newPage);
+					
+							that.removeClass('loading').find('.text').slideDown(320);
+							that.find('.sunset-icon').removeClass('spin');
+						}
+						
+						revealPosts();
+						
+					}, 1000 );
+				}
 			}
 		});
 
