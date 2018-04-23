@@ -105,7 +105,7 @@ body {
     ------------------------------------------------
 */
 article { padding-top: 40px; padding-bottom: 40px;
-    &:first-child { padding-top: 80px;}
+    //&:first-child { padding-top: 80px;}
 }
 
 h1{ font-size: 48px; font-weight:200; 
@@ -330,6 +330,7 @@ h1{ font-size: 48px; font-weight:200;
     ------------------------------------------------
 */
 .sunset-posts-container {
+    padding-top: 40px;
     article {
         @include animate(all, 320);
         @include transform(translateY(100px));

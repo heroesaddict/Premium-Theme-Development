@@ -1,9 +1,14 @@
 jQuery(document).ready( function($){
 	// //custom sunset script
 
+	/* init functions */
 	revealPosts(); //show and animate first batch of posts
 
+	/*variable declarations */
 	var carousel =  '.sunset-carousel-thumb';
+	var last_scroll = 0;
+
+	/* carousel functions */
 	//call slide the first time the page load
 	sunset_get_bs_thumbs(carousel);
 
@@ -60,6 +65,27 @@ jQuery(document).ready( function($){
 
 	});
 
+	/* scroll functions */
+
+	$(window).scroll( function(){
+		var scroll = $(window).scrollTop(); //distance between top of window(0) and top of page as we scroll
+		//console.log(scroll);
+		//console.log($(window).height())
+		//console.log($(window).height()*0.1)
+		if( Math.abs(scroll-last_scroll) > $(window).height()*0.1) {
+			last_scroll = scroll;
+			// console.log('last_scroll: '+last_scroll);
+			$('.page-limit').each(function( index) {
+				if ( isVisible( $(this) ) ) {
+					//console.log('visible');
+					//console.log($(this).attr("data-page"));
+					history.replaceState( null, null, $(this).attr("data-page") );
+					return(false);
+				}
+			});			
+		}
+	});
+
 	/* helper functions */
 	function revealPosts() {
 		var posts = $('article:not(.reveal)');
@@ -78,7 +104,18 @@ jQuery(document).ready( function($){
 	    $(carousel).on('slid.bs.carousel', function(){
 	    sunset_get_bs_thumbs(carousel);
 	    });
-	}﻿
+	}﻿;
+	function isVisible( element ){
+		
+		var scroll_pos = $(window).scrollTop();
+		var window_height = $(window).height();
+		var el_top = $(element).offset().top;
+		var el_height = $(element).height();
+		var el_bottom = el_top + el_height;
+		return ( ( el_bottom - el_height*0.25 > scroll_pos ) && ( el_top < ( scroll_pos+0.5*window_height ) ) );
+		
+	};
+	
 
 });
 
