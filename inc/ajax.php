@@ -15,7 +15,7 @@ function sunset_load_more() {
 	//echo $paged;
 	$prev = $_POST["prev"];
 	$archive = $_POST["archive"];
-
+	
 	if( $prev == 1 && $_POST["page"] != 1) {
 		$paged = $_POST["page"]-1;
 	}
@@ -26,22 +26,124 @@ function sunset_load_more() {
 	);
 	if ( $archive != '0' ) { //check if in archive page
 		$archVal = explode( '/', $archive );
-		//print_r($archVal); localhost/wordpress/ptd/category/updates/ result => Array ( [0] => [1] => wordpress [2] => ptd [3] => category [4] => updates [5] => )
-		$type = ( $archVal[3] == 'category' ? 'category_name' : $archVal[3] ) ;
-		$args[$type] = $archVal[4];
+		// $type = ( $archVal[3] == 'category' ? 'category_name' : $archVal[3] ) ;
+		// $args[$type] = $archVal[4];
 		
-		$page_trail = get_site_url(). '/' .$archVal[3] .  '/' .$archVal[4] .  '/';
+		// $page_trail = get_site_url(). '/' .$archVal[3] .  '/' .$archVal[4] .  '/';
+		
+		// $args_archive_names = array ('category', 'tag', 'author');
 
+		// foreach($args_archive_names as $name ) {
+		// 	if( in_array( $name, $archVal ) ){
+		
+		// 		$type = $name;
+		// 		$currKey = array_keys( $archVal,  $name );
+		// 		$nextKey = $currKey[0]+1;
+		// 		$value = $archVal[ $nextKey ];
+				
+		// 		$args[ $type ] = $value;
+				
+		// 	}
+		// }
+		
+		// if( in_array( "category", $archVal ) ){
+		
+		// $type = "category_name";
+		// $currKey = array_keys( $archVal, "category" );
+		// $nextKey = $currKey[0]+1;
+		// $value = $archVal[ $nextKey ];
+		
+		// $args[ $type ] = $value;
+		
+		// }
+
+		// if( in_array( "tag", $archVal ) ){
+		
+		// $type = "tag";
+		// $currKey = array_keys( $archVal, "tag" );
+		// $nextKey = $currKey[0]+1;
+		// $value = $archVal[ $nextKey ];
+		
+		// $args[ $type ] = $value;
+		
+		// }
+
+		// if( in_array( "page", $archVal ) ){
+		// 	$pageVal = explode('page', $archive);
+		// 	$page_trail =$archVal[0];
+		// } else {
+		// 	//echo $archive;
+		// 	$page_trail =$archive .'/';
+		// }
+
+		$flipped = array_flip($archVal);
+		// if ( isset( $flipped["category"]) || isset( $flipped["tag"]) || isset( $flipped["author"])) {
+		// 	if ( isset( $flipped["category"])) {
+		// 		$type = "category_name";
+		// 		$key = "category";
+		// 	} else if ( isset( $flipped["tag"])){
+		// 		$type = "tag";
+		// 		$key = $type;
+		// 	} else if ( isset( $flipped["tag"])){
+		// 		$type = "author";
+		// 		$key = $type;
+		// 	}
+
+		// 	$currKey = array_keys( $archVal, $key );
+		// 	$nextKey = $currKey[0]+1;
+		// 	$value = $archVal[ $nextKey ];
+			
+		// 	$args[ $type ] = $value;
+		// }
+
+		switch( isset( $flipped ) ) {
+			
+			case $flipped["category"] :
+				$type = "category_name";
+				$key = "category";
+				break;
+				
+			case $flipped["tag"] :
+				$type = "tag";
+				$key = $type;
+				break;
+				
+			case $flipped["author"] :
+				$type = "author";
+				$key = $type;
+				break;
+			
+		}
+		$currKey = array_keys( $archVal, $key );
+		$nextKey = $currKey[0]+1;
+		$value = $archVal[ $nextKey ];
+			
+		$args[ $type ] = $value;
+
+
+
+		//check page trail and remove "page" value
+		if ( isset( $flipped["page"])){
+			$pageVal = explode('page', $archive);
+			$page_trail =$pageVal[0];
+		} else {
+			//echo $archive;
+			$page_trail =$archive ;
+		}
+		
+		
+	
+		
 	} else { // usual
 		$page_trail =get_site_url().'/';
-	}
 
+	}
 	$query = new WP_Query( $args );
 	
 	if( $query->have_posts() ):
 		//echo '<div class="page-limit" data-page="'. get_site_url() . '/page/' . $paged . '">';
 		//echo '<div class="page-limit" data-page="'.get_site_url().'/page/'.$paged.'">';	
-		echo '<div class="page-limit" data-page="'.$page_trail.'page/'.$paged.'">';								
+		echo '<div class="page-limit" data-page="'.$page_trail.'page/'.$paged. '/' . '">';		
 		while( $query->have_posts() ): $query->the_post();
 		
 			get_template_part( 'template-parts/content', get_post_format() );

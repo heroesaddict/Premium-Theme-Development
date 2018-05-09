@@ -5,26 +5,47 @@ jQuery(document).ready( function($){
 	revealPosts(); //show and animate first batch of posts
 
 	/*variable declarations */
-	var carousel =  '.sunset-carousel-thumb';
+	//var carousel =  '.sunset-carousel-thumb';
 	var last_scroll = 0;
 
 	/* carousel functions */
 	//call slide the first time the page load
-	sunset_get_bs_thumbs(carousel);
+	//sunset_get_bs_thumbs(carousel);
 
-	 slideEvent();
+	 //slideEvent();
 	// $(carousel).on('slid.bs.carousel', function(){
 	// 	sunset_get_bs_thumbs(carousel);
 	// });
-	function sunset_get_bs_thumbs(carousel) {
-
-		$(carousel).each(function(){
-			var nextThumb = $(this).find('.item.active').find('.next-image-preview').data('image');
-			var prevThumb = $(this).find('.item.active').find('.previous-image-preview').data('image');
-		 	$(this).find('.carousel-control.right').find('.thumbnail-container').css({ 'background-image' : 'url('+nextThumb+')'});
-		 	$(this).find('.carousel-control.left').find('.thumbnail-container').css({ 'background-image' : 'url('+prevThumb+')'});
-		});
+	/* carousel functions */
+	$(document).on('click', '.sunset-carousel-thumb', function() {
+    	var id = $("#" + $(this).attr("id"));
+    	$(id).on('slid.bs.carousel', function () { 
+	    	sunset_get_bs_thumbs(id);
+    	});
+    });
+    
+    $(document).on('mouseenter', '.sunset-carousel-thumb', function() {
+    	var id = $("#" + $(this).attr("id"));
+        sunset_get_bs_thumbs(id);
+    });
+	
+	function sunset_get_bs_thumbs( id ){
+			
+		var nextThumb = $(id).find(".item.active").find(".next-image-preview").data("image");
+        var prevThumb = $(id).find(".item.active").find(".previous-image-preview").data("image");
+        $(id).find(".carousel-control.right").find(".thumbnail-container").css({"background-image" : "url("+ nextThumb +")"});
+        $(id).find(".carousel-control.left").find(".thumbnail-container").css({"background-image" : "url("+ prevThumb +")"});
+		
 	}
+	// function sunset_get_bs_thumbs(carousel) {
+
+	// 	$(carousel).each(function(){
+	// 		var nextThumb = $(this).find('.item.active').find('.next-image-preview').data('image');
+	// 		var prevThumb = $(this).find('.item.active').find('.previous-image-preview').data('image');
+	// 	 	$(this).find('.carousel-control.right').find('.thumbnail-container').css({ 'background-image' : 'url('+nextThumb+')'});
+	// 	 	$(this).find('.carousel-control.left').find('.thumbnail-container').css({ 'background-image' : 'url('+prevThumb+')'});
+	// 	});
+	// }
 
 	/* Ajax Functions */
 	//Number of posts load depends on 'Blog pages show at most' Setting on Dashboard
@@ -84,7 +105,7 @@ jQuery(document).ready( function($){
 						
 						revealPosts();
 						
-					}, 1000 );
+					}, 500 );
 				}
 			}
 		});
@@ -122,15 +143,15 @@ jQuery(document).ready( function($){
 
 			var el = posts[i];
 			$(el).addClass('reveal').find('.sunset-carousel-thumb').carousel();//call bootstrap carousel again.
-			slideEvent();
+			//slideEvent();
 			i++;
 		}, 200);
 	};
-	function slideEvent() {
-	    $(carousel).on('slid.bs.carousel', function(){
-	    sunset_get_bs_thumbs(carousel);
-	    });
-	}﻿;
+	// function slideEvent() {
+	//     $(carousel).on('slid.bs.carousel', function(){
+	//     sunset_get_bs_thumbs(carousel);
+	//     });
+	// }﻿;
 	function isVisible( element ){
 		
 		var scroll_pos = $(window).scrollTop();

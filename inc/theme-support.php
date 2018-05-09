@@ -149,3 +149,14 @@ function sunset_grab_url () {
 	}
 	return esc_url_raw( $links[1] );
 }
+
+function sunset_grab_current_uri(){
+
+	// $uri = explode("/", $_SERVER["REQUEST_URI"]);
+	// $uri = $uri[3]. "/" .$uri[4];
+
+	$http = (isset($_SERVER["HTTPS"]) ? 'https://' :  'http://' );
+	$referer =$http . $_SERVER["HTTP_HOST"];
+	$archive_url =$referer . $_SERVER["REQUEST_URI"];
+	return $archive_url;
+}

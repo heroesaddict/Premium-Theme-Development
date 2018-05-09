@@ -12,7 +12,7 @@
 			</header>
 			<?php if( is_paged() ): ?><!--  check if page is in pagination->meaning not in page 1 -->
 				<div class="container text-center container-load-previous">
-					<a class="btn-sunset-load sunset-load-more" data-prev="1" data-archive="<?php echo $_SERVER["REQUEST_URI"] ?>" data-page="<?php echo sunset_check_paged(1);  ?>" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
+					<a class="btn-sunset-load sunset-load-more" data-prev="1" data-archive="<?php echo sunset_grab_current_uri(); ?>" data-page="<?php echo sunset_check_paged(1);  ?>" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
 						<span class="sunset-icon sunset-loading"></span>
 						<span class="text"> Load Previous</span>
 					</a>
@@ -37,7 +37,7 @@
 			</div><!-- .container -->
 			<!-- more posts append here -->
 			<div class="container text-center">
-				<a class="btn-sunset-load sunset-load-more" data-page="<?php echo sunset_check_paged(1);  ?>" data-archive="<?php echo $_SERVER["REQUEST_URI"] ?>" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
+				<a class="btn-sunset-load sunset-load-more" data-page="<?php echo sunset_check_paged(1);  ?>" data-archive="<?php echo sunset_grab_current_uri(); ?>" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
 					<span class="sunset-icon sunset-loading"></span>
 					<span class="text"> Load More</span>
 				</a>
