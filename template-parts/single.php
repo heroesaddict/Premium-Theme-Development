@@ -16,7 +16,7 @@
 			<?php echo sunset_posted_meta(); ?>
 		</div>
 	</header>
-	<div class="entry-content">
+	<div class="entry-content clearfix">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
 	<footer class="entry-footer">
