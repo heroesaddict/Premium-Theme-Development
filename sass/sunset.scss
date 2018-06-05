@@ -385,10 +385,11 @@ h1{ font-size: 48px; font-weight:200;
     font-weight: 300;
     line-height: 1.7em;
     a,
-    .sunset-tooltip {
+    .sunset-tooltip,
+    .sunset-popover {
         color: #ff9d1d;
         cursor: pointer;
-        
+
         &:hover,
         &:focus {
             color: #F56B08;
@@ -403,6 +404,22 @@ h1{ font-size: 48px; font-weight:200;
         font-weight: 700;
     }
 }
+.post-link-nav {
+    padding: 10px 0;
+    
+    a {
+        padding: 0 5px;
+        
+        &:hover,
+        &:focus {
+            color: #ff9d1d;
+        }
+    }
+    
+}
+
+
+
 
 
 

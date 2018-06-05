@@ -783,17 +783,27 @@ h1 {
   font-weight: 300;
   line-height: 1.7em; }
   .entry-content a,
-  .entry-content .sunset-tooltip {
+  .entry-content .sunset-tooltip,
+  .entry-content .sunset-popover {
     color: #ff9d1d;
     cursor: pointer; }
     .entry-content a:hover, .entry-content a:focus,
     .entry-content .sunset-tooltip:hover,
-    .entry-content .sunset-tooltip:focus {
+    .entry-content .sunset-tooltip:focus,
+    .entry-content .sunset-popover:hover,
+    .entry-content .sunset-popover:focus {
       color: #F56B08; }
   .entry-content p {
     margin-bottom: 15px; }
   .entry-content b,
   .entry-content strong {
     font-weight: 700; }
+
+.post-link-nav {
+  padding: 10px 0; }
+  .post-link-nav a {
+    padding: 0 5px; }
+    .post-link-nav a:hover, .post-link-nav a:focus {
+      color: #ff9d1d; }
 
 /*# sourceMappingURL=sunset.css.map */

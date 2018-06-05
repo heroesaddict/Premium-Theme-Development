@@ -160,3 +160,89 @@ function sunset_grab_current_uri(){
 	$archive_url =$referer . $_SERVER["REQUEST_URI"];
 	return $archive_url;
 }
+
+/*
+	========================
+		SINGLE POST CUSTOM FUNCTIONS
+	========================
+*/
+//post navigation
+
+function sunset_post_navigation(){
+	
+	$nav = '<div class="row">';
+	
+	$prev = get_previous_post_link( '<div class="post-link-nav"><span class="sunset-icon sunset-chevron-left" aria-hidden="true"></span> %link</div>', '%title' );
+	$nav .= '<div class="col-xs-12 col-sm-6">' . $prev . '</div>';
+	
+	$next = get_next_post_link( '<div class="post-link-nav">%link <span class="sunset-icon sunset-chevron-right" aria-hidden="true"></span></div>', '%title' );
+	$nav .= '<div class="col-xs-12 col-sm-6 text-right">' . $next . '</div>';
+	
+	$nav .= '</div>';
+	
+	return $nav;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
