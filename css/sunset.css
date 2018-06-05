@@ -782,6 +782,14 @@ h1 {
   letter-spacing: 0.02em;
   font-weight: 300;
   line-height: 1.7em; }
+  .entry-content a,
+  .entry-content .sunset-tooltip {
+    color: #ff9d1d;
+    cursor: pointer; }
+    .entry-content a:hover, .entry-content a:focus,
+    .entry-content .sunset-tooltip:hover,
+    .entry-content .sunset-tooltip:focus {
+      color: #F56B08; }
   .entry-content p {
     margin-bottom: 15px; }
   .entry-content b,
