@@ -19,7 +19,37 @@
 	<div class="entry-content clearfix">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
+	
 	<footer class="entry-footer">
 		<?php echo sunset_posted_footer(); ?>
 	</footer>
 </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

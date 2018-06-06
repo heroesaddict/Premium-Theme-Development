@@ -1,26 +1,25 @@
 /*
-  @package sunsettheme
+    @package sunsettheme
 */
 
-/* 
-  Font Icon 
-  ------------------------------------------------
+/*
+    FONT ICONS
+    ------------------------------------------------
 */
-
 @font-face {
   font-family: 'sunset-icon';
-  src:  url('../fonts/sunset-icon.eot?mlc7oc');
-  src:  url('../fonts/sunset-icon.eot?mlc7oc#iefix') format('embedded-opentype'),
-    url('../fonts/sunset-icon.ttf?mlc7oc') format('truetype'),
-    url('../fonts/sunset-icon.woff?mlc7oc') format('woff'),
-    url('../fonts/sunset-icon.svg?mlc7oc#sunset-icon') format('svg');
+  src:  url('../fonts/sunset-icon.eot?bpwtle');
+  src:  url('../fonts/sunset-icon.eot?bpwtle#iefix') format('embedded-opentype'),
+    url('../fonts/sunset-icon.ttf?bpwtle') format('truetype'),
+    url('../fonts/sunset-icon.woff?bpwtle') format('woff'),
+    url('../fonts/sunset-icon.svg?bpwtle#sunset-icon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 .sunset-icon {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'sunset-icon' !important;
+  font-family: $icon-font!important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -33,65 +32,56 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.sunset-facebook:before {
+.sunset-audio:before {
   content: "\e900";
 }
-.sunset-twitter:before {
+.sunset-chevron-left:before {
   content: "\e901";
 }
-.sunset-audio:before {
+.sunset-chevron-right:before {
   content: "\e902";
 }
-.sunset-chevron-left:before {
+.sunset-close:before {
   content: "\e903";
 }
-.sunset-chevron-right:before {
-  content: "\e904";
-}
-.sunset-close:before {
-  content: "\e905";
-}
 .sunset-comment:before {
-  content: "\e906";
-  color: #fff;
-}
-.sunset-googleplus:before {
-  content: "\e907";
+  content: "\e904";
+  color: #929292;
 }
 .sunset-link:before {
-  content: "\e908";
+  content: "\e905";
   color: #fff;
 }
 .sunset-loading:before {
-  content: "\e909";
+  content: "\e906";
   color: #ccc;
 }
 .sunset-logo:before {
-  content: "\e90a";
+  content: "\e907";
 }
 .sunset-menu:before {
-  content: "\e90b";
+  content: "\e908";
 }
 .sunset-pencil:before {
-  content: "\e90c";
+  content: "\e909";
 }
 .sunset-pics:before {
-  content: "\e90d";
+  content: "\e90a";
   color: #fff;
 }
 .sunset-search:before {
-  content: "\e90e";
+  content: "\e90b";
   color: #bcbcbc;
 }
 .sunset-share:before {
-  content: "\e90f";
+  content: "\e90c";
   color: #fff;
 }
 .sunset-tag:before {
-  content: "\e910";
+  content: "\e90d";
   color: #929292;
 }
 .sunset-video:before {
-  content: "\e911";
+  content: "\e90e";
   color: #fff;
 }

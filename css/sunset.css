@@ -46,21 +46,21 @@
   /* IE6-9 */ }
 
 /*
-    @package sunsettheme
+  @package sunsettheme
 */
-/*
-    FONT ICONS
-    ------------------------------------------------
+/* 
+  Font Icon 
+  ------------------------------------------------
 */
 @font-face {
   font-family: 'sunset-icon';
-  src: url("../fonts/sunset-icon.eot?bpwtle");
-  src: url("../fonts/sunset-icon.eot?bpwtle#iefix") format("embedded-opentype"), url("../fonts/sunset-icon.ttf?bpwtle") format("truetype"), url("../fonts/sunset-icon.woff?bpwtle") format("woff"), url("../fonts/sunset-icon.svg?bpwtle#sunset-icon") format("svg");
+  src: url("../fonts/sunset-icon.eot?mlc7oc");
+  src: url("../fonts/sunset-icon.eot?mlc7oc#iefix") format("embedded-opentype"), url("../fonts/sunset-icon.ttf?mlc7oc") format("truetype"), url("../fonts/sunset-icon.woff?mlc7oc") format("woff"), url("../fonts/sunset-icon.svg?mlc7oc#sunset-icon") format("svg");
   font-weight: normal;
   font-style: normal; }
 .sunset-icon {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "sunset-icon" !important;
+  font-family: 'sunset-icon' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -71,57 +71,66 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.sunset-audio:before {
+.sunset-facebook:before {
   content: "\e900"; }
 
-.sunset-chevron-left:before {
+.sunset-twitter:before {
   content: "\e901"; }
 
-.sunset-chevron-right:before {
+.sunset-audio:before {
   content: "\e902"; }
 
-.sunset-close:before {
+.sunset-chevron-left:before {
   content: "\e903"; }
 
+.sunset-chevron-right:before {
+  content: "\e904"; }
+
+.sunset-close:before {
+  content: "\e905"; }
+
 .sunset-comment:before {
-  content: "\e904";
-  color: #929292; }
+  content: "\e906";
+  color: #fff; }
+
+.sunset-googleplus:before {
+  content: "\e907"; }
 
 .sunset-link:before {
-  content: "\e905";
+  content: "\e908";
   color: #fff; }
 
 .sunset-loading:before {
-  content: "\e906";
+  content: "\e909";
   color: #ccc; }
 
 .sunset-logo:before {
-  content: "\e907"; }
+  content: "\e90a"; }
 
 .sunset-menu:before {
-  content: "\e908"; }
+  content: "\e90b"; }
 
 .sunset-pencil:before {
-  content: "\e909"; }
+  content: "\e90c"; }
 
 .sunset-pics:before {
-  content: "\e90a";
+  content: "\e90d";
   color: #fff; }
 
 .sunset-search:before {
-  content: "\e90b";
+  content: "\e90e";
   color: #bcbcbc; }
 
 .sunset-share:before {
-  content: "\e90c";
+  content: "\e90f";
   color: #fff; }
 
 .sunset-tag:before {
-  content: "\e90d";
+  content: "\e910";
   color: #929292; }
 
 .sunset-video:before {
-  content: "\e90e";
+  content: "\e911";
   color: #fff; }
 
 /*
@@ -805,5 +814,32 @@ h1 {
     padding: 0 5px; }
     .post-link-nav a:hover, .post-link-nav a:focus {
       color: #ff9d1d; }
+
+/* 
+    Sharing section
+    ------------------------------------------------
+*/
+.sunset-shareThis {
+  display: block;
+  text-align: center;
+  border-top: 1px solid #F1F1F1;
+  padding-top: 10px;
+  clear: both; }
+  .sunset-shareThis ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .sunset-shareThis ul li {
+      float: none;
+      display: inline-block; }
+  .sunset-shareThis a {
+    display: inline-block;
+    font-size: 20px;
+    opacity: 0.65;
+    margin: 0 5px;
+    color: #000000; }
+    .sunset-shareThis a:hover, .sunset-shareThis a:focus {
+      opacity: 1;
+      color: #000000; }
 
 /*# sourceMappingURL=sunset.css.map */
