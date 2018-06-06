@@ -842,4 +842,12 @@ h1 {
       opacity: 1;
       color: #000000; }
 
+/* 
+    Comment section
+    ------------------------------------------------
+*/
+.comments-area {
+  border-top: 4px solid #F1F1F1;
+  margin-top: 40px; }
+
 /*# sourceMappingURL=sunset.css.map */
