@@ -923,4 +923,20 @@ a.comment-reply-link {
 .comment-respond {
   margin-top: 60px; }
 
+/* 
+    Sidebar section
+    ------------------------------------------------
+*/
+.sunset-sidebar {
+  position: fixed;
+  color: #ffffff;
+  z-index: 9;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1F1F1F;
+  height: 100vh;
+  width: 100%;
+  max-width: 280px; }
+
 /*# sourceMappingURL=sunset.css.map */
