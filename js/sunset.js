@@ -165,6 +165,12 @@ jQuery(document).ready( function($){
 		return ( ( el_bottom - el_height*0.25 > scroll_pos ) && ( el_top < ( scroll_pos+0.5*window_height ) ) );
 		
 	};
+
+	//sidebar function
+	$(document).on('click', '.js-toggleSidebar', function() {
+        // console.log('close button click');
+        $('.sunset-sidebar').toggleClass('sidebar-closed');
+    });
 	
 
 });

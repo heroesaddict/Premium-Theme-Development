@@ -587,8 +587,42 @@ a.comment-reply-link {
     height: 100vh;
     width: 100%;
     max-width: 280px;
+    @include animate( transform, 320ms );
+    // transition: transform 320ms ease; //same with animate above
+
+    &.sidebar-closed {
+       @include transform( translateX( 100% ) );
+    }
+
+}
+.sunset-sidebar-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    padding-top: 40px;
+}
+.sidebar-close,
+.sidebar-open {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #fff;
+    cursor: pointer;
+    
+    &:hover,
+    &:focus {
+        color: $orange-hover;
+    }
+    
 }
 
+.sidebar-open {
+    left: auto;
+    right: 20px;
+    top: 20px;
+    font-size: 10px;
+}
 
 
 

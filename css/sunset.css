@@ -937,6 +937,42 @@ a.comment-reply-link {
   background-color: #1F1F1F;
   height: 100vh;
   width: 100%;
-  max-width: 280px; }
+  max-width: 280px;
+  -webkit-transition: transform 320ms ease;
+  -moz-transition: transform 320ms ease;
+  -ms-transition: transform 320ms ease;
+  -o-transition: transform 320ms ease;
+  transition: transform 320ms ease; }
+  .sunset-sidebar.sidebar-closed {
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%); }
+
+.sunset-sidebar-container {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  padding-top: 40px; }
+
+.sidebar-close,
+.sidebar-open {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #fff;
+  cursor: pointer; }
+  .sidebar-close:hover, .sidebar-close:focus,
+  .sidebar-open:hover,
+  .sidebar-open:focus {
+    color: #F56B08; }
+
+.sidebar-open {
+  left: auto;
+  right: 20px;
+  top: 20px;
+  font-size: 10px; }
 
 /*# sourceMappingURL=sunset.css.map */
