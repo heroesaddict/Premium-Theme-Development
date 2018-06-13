@@ -1016,6 +1016,10 @@ a.comment-reply-link {
     -ms-transform: translateX(100%);
     -o-transform: translateX(100%);
     transform: translateX(100%); }
+  .sunset-sidebar a {
+    color: #bababa; }
+    .sunset-sidebar a:hover, .sunset-sidebar a:focus {
+      color: #fff; }
 
 .sunset-sidebar-container {
   position: relative;
@@ -1041,5 +1045,37 @@ a.comment-reply-link {
   right: 20px;
   top: 20px;
   font-size: 10px; }
+
+/* 
+    Widgets section
+    ------------------------------------------------
+*/
+.sunset-widget {
+  margin: 30px 0 50px;
+  padding: 0 20px; }
+
+h2.sunset-widget-title {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 300;
+  background-color: #303030;
+  padding: 8px;
+  border-radius: 20px;
+  line-height: 1em;
+  margin-bottom: 20px;
+  letter-spacing: 0.2px; }
+
+.tagcloud {
+  text-align: center; }
+  .tagcloud a {
+    display: inline-block;
+    background-color: #7D7D7D;
+    padding: 1px 9px;
+    border-radius: 10px;
+    color: #eee; }
+
+.sunset-widget ul {
+  text-align: left; }
 
 /*# sourceMappingURL=sunset.css.map */
