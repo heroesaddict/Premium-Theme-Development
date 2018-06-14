@@ -84,3 +84,21 @@ function sunset_tag_cloud_font_change( $args ) {
 	
 }
 add_filter( 'widget_tag_cloud_args', 'sunset_tag_cloud_font_change' );
+
+/*
+	Save Posts views
+*/
+function sunset_save_post_views( $postID ) {
+	
+	$metaKey = 'sunset_post_views';
+	$views = get_post_meta( $postID, $metaKey, true );
+	
+	$count = ( empty( $views ) ? 0 : $views );
+	$count++;
+	
+	update_post_meta( $postID, $metaKey, $count );
+	// echo <h1>$views</h1>; //no. of views in a post
+	
+}
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+

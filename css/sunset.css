@@ -1077,7 +1077,8 @@ a.comment-reply-link {
   .sunset-widget ul {
     list-style: none;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    text-align: left; }
   .sunset-widget li {
     padding: 0 10px;
     margin-bottom: 10px; }
