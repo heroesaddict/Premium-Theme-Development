@@ -35,6 +35,9 @@
 		</div>
 		
 	</div>
+	
+	<div class="sidebar-overlay"></div>
+
 	<div class="container-fluid">
 		<div class="row">
 			<header class="header-container background-image text-center" style="background-image: url(<?php header_image(); ?>);">
