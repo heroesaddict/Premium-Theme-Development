@@ -2,9 +2,8 @@
 	/*
 		@package sunsettheme
 	*/
-?>
-<?php get_header(); ?>
 
+get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 			
@@ -14,7 +13,7 @@
 						<?php 
 							if( have_posts() ):
 								while( have_posts() ): the_post();
-									sunset_save_post_views( get_the_ID() );
+									// echo sunset_save_post_views( get_the_ID() );
 									get_template_part( 'template-parts/single', get_post_format() );
 									echo sunset_post_navigation();
 									if (comments_open()) :
