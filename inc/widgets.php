@@ -180,14 +180,17 @@ class Sunset_Popular_Posts_Widget extends WP_Widget {
 				
 				while( $posts_query->have_posts() ): $posts_query->the_post();
 					
-					echo '<li>' . get_the_title() . '</li>';
-					echo '<li>' .sunset_save_post_views( get_the_ID() ). '</li>';
+				echo '<div class="media">';
+				echo '<div class="media-left"><img class="media-object" src="' . get_template_directory_uri() . '/img/post-' . ( get_post_format() ? get_post_format() : 'standard') . '.png" alt="' . get_the_title() . '"/></div>';
+				echo '<div class="media-body">' . get_the_title() . '</div>';
+				echo '</div>';
 					
 				endwhile;
 				
 			echo '</ul>';
 		
 		endif;
+		
 		
 		echo $args[ 'after_widget' ];
 		

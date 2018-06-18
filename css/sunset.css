@@ -1194,6 +1194,7 @@ a.comment-reply-link:hover, a.comment-reply-link:focus {
 	position: fixed;
 	z-index: 3;
 	display: none;
+	cursor: e-resize;
 }
 
 .sunset-sidebar {
