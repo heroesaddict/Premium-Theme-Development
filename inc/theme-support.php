@@ -81,7 +81,7 @@ function sunset_posted_meta(){
 	
 	return '<span class="posted-on">Posted <a href="'. esc_url( get_permalink() ) .'">' . $posted_on . '</a> ago</span> / <span class="posted-in">' . $output . '</span>';
 }
-function sunset_posted_footer(){
+function sunset_posted_footer( $onlyComments = false){
 	$comments_num = get_comments_number();
 	if( comments_open() ) {
 		if ($comments_num == 0) {
@@ -94,6 +94,9 @@ function sunset_posted_footer(){
 		$comments = '<a class="comments-link" href="' . get_comments_link() . '">' .$comments. ' <span class="sunset-icon sunset-comment"></span></a>';
 	} else {
 		$comments = __('Comments are closed');
+	}
+	if ($onlyComments) {
+		return $comments;
 	}
 	return '<div class="post-footer-container">
 				<div class="row">
