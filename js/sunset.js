@@ -182,7 +182,9 @@ jQuery(document).ready( function($){
 	$('#sunsetContactForm').on('submit', function(e){
 
 		e.preventDefault();
-		console.log('form submitted');
+		
+		$('.has-error').removeClass('has-error');
+		$('.js-show-feedback').removeClass('js-show-feedback');
 
 		var form = $(this),
 				name = form.find('#name').val(),
@@ -190,10 +192,23 @@ jQuery(document).ready( function($){
 				message = form.find('#message').val(),
 				ajaxurl = form.data('url');
 		// console.log(name,email,message);	
-		if( name === '' || email == '' || message == '' ){
-			console.log('Required inputs are empty');
+		if( name === '' ){
+			$('#name').parent('.form-group').addClass('has-error');
 			return;
 		}
+
+		if( email === '' ){
+			$('#email').parent('.form-group').addClass('has-error');
+			return;
+		}
+
+		if( message === '' ){
+			$('#message').parent('.form-group').addClass('has-error');
+			return;
+		}
+
+		form.find('input, button, textarea').attr('disabled','disabled');
+		$('.js-form-submission').addClass('js-show-feedback');		
 		
 		$.ajax({
 			
@@ -208,13 +223,27 @@ jQuery(document).ready( function($){
 				
 			},
 			error : function( response ){
-				console.log(response);
+				$('.js-form-submission').removeClass('js-show-feedback');
+				$('.js-form-error').addClass('js-show-feedback');
+				form.find('input, button, textarea').removeAttr('disabled');
 			},
 			success : function( response ){
 				if( response == 0 ){
-					console.log('Unable to save your message, Please try again later');
+					
+					setTimeout(function(){
+						$('.js-form-submission').removeClass('js-show-feedback');
+						$('.js-form-error').addClass('js-show-feedback');
+						form.find('input, button, textarea').removeAttr('disabled');
+					},1500);
+
 				} else {
-					console.log('Message saved, thank you!');
+					
+					setTimeout(function(){
+						$('.js-form-submission').removeClass('js-show-feedback');
+						$('.js-form-success').addClass('js-show-feedback');
+						form.find('input, button, textarea').removeAttr('disabled').val('');
+					},1500);
+
 				}
 			}
 			

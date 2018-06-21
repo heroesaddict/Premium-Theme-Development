@@ -741,6 +741,25 @@ h2.sunset-widget-title {
     
 }
 
+// Contact form 
+.form-control-msg {
+	display: none;
+}
+
+.has-error {
+	.form-control-msg {
+		display: block;
+	}
+}
+
+.js-show-feedback {
+	display: block;
+}
+
+
+
+
+
 
 
 
