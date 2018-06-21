@@ -211,7 +211,11 @@ jQuery(document).ready( function($){
 				console.log(response);
 			},
 			success : function( response ){
-				console.log(response);
+				if( response == 0 ){
+					console.log('Unable to save your message, Please try again later');
+				} else {
+					console.log('Message saved, thank you!');
+				}
 			}
 			
 		});
