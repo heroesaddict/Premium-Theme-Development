@@ -30,6 +30,16 @@
 				<span class="sunset-icon sunset-close"></span>
 			</a>
 			<div class="sidebar-scroll">
+				<div class="visible-xs">
+				<?php
+					wp_nav_menu( array(
+						'theme_location' => 'primary',
+						'container' => false,
+						'menu_class' => 'nav navbar-nav navbar-collapse',
+						'walker' => new Sunset_Walker_Nav_Primary()
+					) );  
+				?>
+			</div>
 				<?php get_sidebar(); ?>
 			</div>
 		</div>
@@ -53,7 +63,7 @@
 						<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 					</div><!-- .table-cell -->
 				</div><!-- .header-content -->
-				<div class="nav-container">
+				<div class="nav-container hidden-xs">
 					<nav class="navbar navbar-default navbar-sunset">
 						<?php 
 							wp_nav_menu(array(

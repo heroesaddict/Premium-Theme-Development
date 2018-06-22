@@ -49,7 +49,15 @@ body {
     Header 
     ------------------------------------------------
 */
-.header-container { @extend %text-shadow; position: relative;  display: block;  height: 326px; }
+.header-container { 
+    @extend %text-shadow; 
+    position: relative;  
+    display: block;  
+    height: 326px; 
+    @media (max-width: $xs) {
+        height: 200px;
+    }
+}
 
 .site-title {  color: #fff;  margin: 0;  font-size: 80px; }
 
@@ -69,8 +77,8 @@ body {
     Nav Bar 
     ------------------------------------------------
 */
-.navbar-sunset { text-align: center; border: none; border-radius: 0; min-height: auto; margin-bottom: 0; background: rgba( 255,255,255,0.1); border-top: 1px solid rgba( 255,255,255,0.1);
-    ul { float: none; }
+.navbar-sunset { text-align: center; border: none; border-radius: 0; min-height: auto; margin-bottom: 0; background: rgba( 255,255,255,0.1); border-top: 1px solid rgba( 255,255,255,0.1); padding: 0 15px;
+    ul { float: none; /*margin-left: 0; margin-right: 0;*/ }
     li { float: none;  display: inline-block; 
         &.active {  
             a { opacity: 1; 
