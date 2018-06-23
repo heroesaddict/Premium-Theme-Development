@@ -486,6 +486,10 @@ a {
 article {
   padding-top: 40px;
   padding-bottom: 40px; }
+  @media (max-width: 767px) {
+    article {
+      padding-top: 20px;
+      padding-bottom: 20px; } }
 
 h1 {
   font-size: 48px;
@@ -502,6 +506,9 @@ h1 {
       margin-right: 10px; }
     h1.entry-title:after {
       margin-left: 10px; }
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 26px; } }
 
 .entry-meta {
   font-size: 13px;
@@ -594,6 +601,9 @@ h1 {
 .sunset-format-image .entry-header {
   height: 600px;
   position: relative; }
+  @media (max-width: 767px) {
+    .sunset-format-image .entry-header {
+      height: 220px; } }
 .sunset-format-image h1,
 .sunset-format-image .entry-meta,
 .sunset-format-image .entry-header {
@@ -652,6 +662,9 @@ h1 {
   height: 500px; }
   .sunset-format-gallery .standard-featured:after {
     background-color: transparent; }
+  @media (max-width: 767px) {
+    .sunset-format-gallery .standard-featured {
+      height: 220px; } }
 .sunset-format-gallery .carousel-control {
   background-color: none;
   background-image: none;
@@ -738,6 +751,9 @@ h1 {
     display: inline-block;
     position: relative;
     color: #ccc; }
+  @media (max-width: 767px) {
+    .sunset-format-quote .quote-content {
+      font-size: 20px; } }
 .sunset-format-quote .quote-author {
   color: #898989;
   font-size: 12px;
@@ -777,6 +793,9 @@ h1 {
   margin: 0 auto -20px; }
 .sunset-format-aside .entry-meta {
   margin-bottom: 5px; }
+  @media (max-width: 767px) {
+    .sunset-format-aside .entry-meta {
+      margin-top: 50px; } }
 .sunset-format-aside .entry-excerpt {
   margin-top: 0; }
   .sunset-format-aside .entry-excerpt p {
